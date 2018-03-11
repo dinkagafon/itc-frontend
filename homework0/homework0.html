@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <script>
+  //Базовое задание 1
+  plus = (x1, x2) => x1 + x2;
+
+  console.log( plus(1, 2) );
+
+  //Базовое задание 2
+  multiply = (x1, x2) => {
+    let sum = 0;
+
+    for (let i = 0; i < x2; i++) {
+      sum = plus(x1, sum);
+    }
+
+    return sum;
+  }
+
+  console.log( multiply(3, 10) );
+
+  //Базовое задание 3
+  mergeArrays = (a1, a2) => {
+    a1 = [...a1, ...a2];
+    return a1;
+  }
+
+  console.log( mergeArrays([1, 2, 3], [4, 5]) );
+
+  //Базовое задание 4
+  filterFelmales = (people) => {
+    for (let i = 0; i < people.length; i++) {
+      if (people[i].gender == "female")  {
+        console.log(people[i].secondName + " Любимый фильм - " + people[i].favoriteMovie);
+      }
+    }
+  }
+
+  let people = [];
+  people[0] = {
+    gender: "female",
+    secondName: "Mikhailenko",
+    favoriteMovie: "Anastasia"
+  };
+  people[1] = {
+    gender: "female",
+    secondName: "Torbina",
+    favoriteMovie: "Burlesque"
+  };
+  people[2] = {
+    gender: "female",
+    secondName: "Tomilina",
+    favoriteMovie: "See now"
+  };
+  people[3] = {
+    gender: "male",
+    secondName: "Agafonov",
+    favoriteMovie: "Anger"
+  };
+
+  filterFelmales(people);
+
+  //Базовое задание 5
+  getQuadrant = (x, y) => {
+    if (x == 0) {
+      if (y == 0) return "точка принадлежит началу координат";
+      else return "точка принадлежит оси Ох";
+    }
+    else {
+      if (y == 0) return "точка принадлежит оси Оy";
+      else {
+        if (x > 0 && y > 0) return "точка принадлежит первой четверти";
+        if (x < 0 && y > 0) return "точка принадлежит второй четверти";
+        if (x < 0 && y < 0) return "точка принадлежит третьей четверти";
+        if (x > 0 && y < 0) return "точка принадлежит четвертой четверти";
+      }
+    }
+  }
+
+  console.log( getQuadrant(1, 2) );
+  console.log( getQuadrant(-1, 2) );
+  console.log( getQuadrant(-2, -3) );
+  console.log( getQuadrant(4, -7) );
+  console.log( getQuadrant(0, 0) );
+
+  // Задание 1
+  plusAll = (...theArgs) => {
+    let sum = 0;
+
+    for (let i = 0; i < theArgs.length; i++) {
+      sum += theArgs[i];
+    }
+
+    return sum;
+  }
+
+  console.log( plusAll(2, 3, 5, 7, 3) )
+
+  // Задание 2
+  multiplyAll = (...theArgs) => {
+    let sum = 0;
+    let result = theArgs.reduce( function (x1, x2) {return x1*x2} );
+    return result;
+  }
+  console.log( multiplyAll(2, 3, 5, 7, 3) )
+
+  // Задание 3
+  objectToQueryString = (object) => {
+    let str = "?";
+
+    for (let key in object) {
+      str += encodeURIComponent(key) + "=" + encodeURIComponent(object[key]) + "&";
+    }
+
+    return str.slice(0, -1);
+  }
+
+  let myObject = {
+    name: "Anastasia",
+    secondName: "Mikhailenko",
+    age: "19"
+  }
+
+  console.log( objectToQueryString(myObject) );
+
+  // Задание 4
+  filterFelmales = (person) => {
+    if (person.gender == "female") {
+      console.log (person.secondName + " Любимый фильм - " + person.favoriteMovie);
+    }
+  }
+
+  let people1 = [];
+  people1[0] = {
+    gender: "female",
+    secondName: "Mikhailenko",
+    favoriteMovie: "Anastasia"
+  };
+  people1[1] = {
+    gender: "female",
+    secondName: "Torbina",
+    favoriteMovie: "Burlesque"
+  };
+  people1[2] = {
+    gender: "female",
+    secondName: "Tomilina",
+    favoriteMovie: "See now"
+  };
+  people1[3] = {
+    gender: "male",
+    secondName: "Agafonov",
+    favoriteMovie: "Anger"
+  }
+
+  people1.filter(filterFelmales);
+
+  </script>
+</body>
+
+</html>
