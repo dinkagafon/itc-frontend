@@ -8,12 +8,12 @@
 <body>
   <script>
   //Базовое задание 1
-  plus = (x1, x2) => x1 + x2;
+  const plus = (x1, x2) => x1 + x2;
 
   console.log( plus(1, 2) );
 
   //Базовое задание 2
-  multiply = (x1, x2) => {
+  const multiply = (x1, x2) => {
     let sum = 0;
 
     for (let i = 0; i < x2; i++) {
@@ -26,7 +26,7 @@
   console.log( multiply(3, 10) );
 
   //Базовое задание 3
-  mergeArrays = (a1, a2) => {
+  const mergeArrays = (a1, a2) => {
     a1 = [...a1, ...a2];
     return a1;
   }
@@ -34,7 +34,7 @@
   console.log( mergeArrays([1, 2, 3], [4, 5]) );
 
   //Базовое задание 4
-  filterFelmales = (people) => {
+  const filterFelmales = (people) => {
     for (let i = 0; i < people.length; i++) {
       if (people[i].gender == "female")  {
         console.log(people[i].secondName + " Любимый фильм - " + people[i].favoriteMovie);
@@ -42,28 +42,13 @@
     }
   }
 
-  let people = [];
-  people[0] = {
-    gender: "female",
-    secondName: "Mikhailenko",
-    favoriteMovie: "Anastasia"
-  };
-  people[1] = {
-    gender: "female",
-    secondName: "Torbina",
-    favoriteMovie: "Burlesque"
-  };
-  people[2] = {
-    gender: "female",
-    secondName: "Tomilina",
-    favoriteMovie: "See now"
-  };
-  people[3] = {
-    gender: "male",
-    secondName: "Agafonov",
-    favoriteMovie: "Anger"
-  };
-
+  let people = [
+    {gender: "female", secondName: "Mikhailenko", favoriteMovie: "Anastasia"};
+    {gender: "female", secondName: "Torbina", favoriteMovie: "Burlesque"};
+    {gender: "female",secondName: "Tomilina",favoriteMovie: "See now"};
+    {gender: "male", secondName: "Agafonov",favoriteMovie: "Anger"};
+  ];
+ 
   filterFelmales(people);
 
   //Базовое задание 5
@@ -136,7 +121,7 @@
     }
   }
 
-  let people1 = [];
+  let people1 = people;
   people1[0] = {
     gender: "female",
     secondName: "Mikhailenko",
