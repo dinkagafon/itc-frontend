@@ -9,22 +9,16 @@
   <script>
   //Базовое задание 1
   const plus = (x1, x2) => x1 + x2;
-
   console.log( plus(1, 2) );
-
   //Базовое задание 2
   const multiply = (x1, x2) => {
-    let sum = 0;
-
+    let sum=0;
     for (let i = 0; i < x2; i++) {
       sum = plus(x1, sum);
     }
-
     return sum;
   }
-
   console.log( multiply(3, 10) );
-
   //Базовое задание 3
   const mergeArrays = (a1, a2) => {
     a1 = [...a1, ...a2];
@@ -32,7 +26,6 @@
   }
 
   console.log( mergeArrays([1, 2, 3], [4, 5]) );
-
   //Базовое задание 4
   const filterFelmales = (people) => {
     for (let i = 0; i < people.length; i++) {
@@ -45,25 +38,22 @@
   let people = [
     {gender: "female", secondName: "Mikhailenko", favoriteMovie: "Anastasia"},
     {gender: "female", secondName: "Torbina", favoriteMovie: "Burlesque"},
-    {gender: "female",secondName: "Tomilina",favoriteMovie: "See now"},
-    {gender: "male", secondName: "Agafonov",favoriteMovie: "Anger"}
+    {gender: "female", secondName: "Tomilina", favoriteMovie: "See now"},
+    {gender: "male", secondName: "Agafonov", favoriteMovie: "Anger"}
   ];
- 
   filterFelmales(people);
-
   //Базовое задание 5
   const getQuadrant = (x, y) => {
     if (x == 0) {
       if (y == 0) return "точка принадлежит началу координат";
       else return "точка принадлежит оси Ох";
-    }
-    else {
-      if (y == 0) return "точка принадлежит оси Оy";
-      else {
-        if (x > 0 && y > 0) return "точка принадлежит первой четверти";
-        if (x < 0 && y > 0) return "точка принадлежит второй четверти";
-        if (x < 0 && y < 0) return "точка принадлежит третьей четверти";
-        if (x > 0 && y < 0) return "точка принадлежит четвертой четверти";
+    } else {
+        if (y == 0) return "точка принадлежит оси Оy";
+        else {
+          if (x > 0 && y > 0) return "точка принадлежит первой четверти";
+          if (x < 0 && y > 0) return "точка принадлежит второй четверти";
+          if (x < 0 && y < 0) return "точка принадлежит третьей четверти";
+          if (x > 0 && y < 0) return "точка принадлежит четвертой четверти";
       }
     }
   }
@@ -73,34 +63,27 @@
   console.log( getQuadrant(-2, -3) );
   console.log( getQuadrant(4, -7) );
   console.log( getQuadrant(0, 0) );
-
   // Задание 1
   const plusAll = (...theArgs) => {
     let sum = 0;
-
     for (let i = 0; i < theArgs.length; i++) {
       sum += theArgs[i];
     }
-
     return sum;
   }
 
   console.log( plusAll(2, 3, 5, 7, 3) )
-
   // Задание 2
   const multiplyAll = (...theArgs) => {
   return theArgs.reduce( function (x1, x2) {return x1*x2} );
   }
   console.log( multiplyAll(2, 3, 5, 7, 3) )
-
   // Задание 3
   const objectToQueryString = (object) => {
     let str = "?";
-
     for (let key in object) {
       str += encodeURIComponent(key) + "=" + encodeURIComponent(object[key]) + "&";
     }
-
     return str.slice(0, -1);
   }
 
@@ -109,13 +92,28 @@
     secondName: "Mikhailenko",
     age: "19"
   }
-
   console.log( objectToQueryString(myObject) );
-
   // Задание 4
   const filterFemales = (people) => people.filter(person => person.gender == "female")
-  console.log( filterFemales(people) )
 
+  console.log( filterFemales(people) )
+  // Задание 5
+  const getIn = (object, path, def) => {
+      try {
+        const result = path.reduce((a, b) => a[b], object)
+        if (result) {
+          return result
+        } else {
+          return def
+        }
+      }
+      catch(err) {
+        return def
+      }
+  }
+
+  const object = undefined
+  console.log( getIn(object, ['address', 'street'], 'Бомж') );
   </script>
 </body>
 
