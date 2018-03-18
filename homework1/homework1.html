@@ -2,15 +2,12 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <style>
-    .st {
-      margin:10px;
-    }
-  </style>
   <div id="posts"> Posts </div>
+
   <script>
   fetch('https://www.reddit.com/top.json')
   .then(
@@ -21,28 +18,32 @@
         return;
       }
 
-      response.json().then((data) => {
-        const children = data.data.children;
+      response.json().then((posts) => {
+        const children = posts['data']['children'];
         console.log(children);
-        children.map( (child) =>{
+        const posts = children.map( (child) => {
           const title = child['data']['title'];
           const permalink = 'https://www.reddit.com' + child['data']['permalink'];
-          const thumbnail = child['data']['thumbnail'];
-          document.write('<div class="st">'
-                          + title +
-                          '<p><a href="$permalink">'
-                          + permalink + '</a></p>' +
-                          ' '
-                          + '<img src="$thumbnail">' +
-                           ' </div>')
+          let thumbnail = child['data']['thumbnail'];
+          if (thumbnail == "self") thumbnail="http://atom96.ru/wp-content/uploads/2017/10/%D0%BD%D0%B5%D1%82-%D1%84%D0%BE%D1%82%D0%BE.png";
+          <div>
+            <div class="block2">
+             <p> <a href="permalink"> title + </a></p>
+            </div>
+            <div class="block1">
+              <img src="thumbnail">
+            </div>
+          </div>
         })
-      });
+        document.querySelector("#posts").innerHTML = posts;
+      })
     }
   )
   .catch(function(err) {
     alert('Fetch Error :-S', err);
   });
   </script>
+
 </body>
 
 </html>
